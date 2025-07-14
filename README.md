@@ -42,3 +42,38 @@ fig.tight_layout(h_pad=0.5)
 - Python is a versatile skill, highly demanded across all three roles, but most prominently for Data Scientists (69%) and Data Engineers (63%).
 - SQL is the most requested skills for Data Analyst (50%) and Data Engineers (67%). It is also highly demanded for Data Scientist (50%).
 - Data Engineers require more specialized technical skills (AWS, Spark, Azure) compared to Data Analysts and Data Scientists who are expected to be more proficient in data management and analysis tools (Excel, Tableau).
+
+
+## 2. How are in-demand skills trending for Data Analysts?
+
+### Visualize Data
+
+```python
+
+from matplotlib.ticker import PercentFormatter
+sns.lineplot(data=df_plot, dashes=False, palette='tab10')
+sns.set_theme(style='ticks')
+sns.despine()
+
+plt.title('Trending Top Skills for Data Analysis in US')
+plt.ylabel('Likelihood in Job Postings')
+plt.xlabel('2023')
+plt.legend().remove()
+
+ax = plt.gca()
+ax.yaxis.set_major_formatter(PercentFormatter(decimals=0))
+
+plt.show()
+
+
+```
+
+### Results
+
+![Trending top Skills for Data Analysts in the US](Project\Images\Skill_Trend_DA.png)
+
+### Insights:
+
+- SQL remains the most consistently demanded skills through the year, although it shows a gradual decrease in demand.
+- Excel experienced a decrease from September to November, but it is the second most demanded skills over the year.
+- Tableau and Python shows a relatively stable demand through the year with some fluctuations, but they remain the essential skills for DA. Sas while less demanded than others, shows a slightly downward trend through the year. 
