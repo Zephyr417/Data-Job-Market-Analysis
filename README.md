@@ -1,3 +1,53 @@
+# Overview
+This is my first data analysis project uploaded on Github. The project follows [Luke Barousse's Youtube video](https://www.youtube.com/watch?v=wUSDVGivd-8&t=39813s). And it focuses on understanding the job market, specifically for data analysis roles. It also delves into the top-paying and most in-demand skills to help find optimal job opportunities for data analysts.
+
+The dataset is downloaded from Luke Barousse's Python Course, containing information about job titles, salaries, location and skills. Through a series of Python scrpts, I explore key questions such as the most demanded skills, salary trends, and the intersection of demand and salary in data analytics.
+
+# Questions
+Below are the questions I want to answer:
+1. What are the most demanded skills for the Top 3 most popular data roles?
+2. How are in-demand skills trending for Data Analysts?
+3. How well do jobs and skills pay for Data Analysts?
+4. What is the most optimal skills to learn for Data Analysts?
+
+# Tools
+- Python: I mainly used Python to obtain, clean, analyze data and visualize the results, including Pandas, matplotlib, seaborn library.
+- Jupyter Notebooks: I used this to run Python code and test the results.
+- Visual Studio Code: My IDE
+- GitHub: For version control
+
+# Data Preparation
+
+I start by importing necessary libraries and downloading the dataset, followed by initial data cleaning tasks and ensure data integrity. The date and skills data is converted to the right format and we removed the duplicated rows.
+
+```python
+import pandas as pd
+import numpy as np
+import ast
+import seaborn as sns
+import matplotlib.pyplot as plt
+from datasets import load_dataset
+
+# Loading
+dataset = load_dataset('lukebarousse/data_jobs')
+df = dataset['train'].to_pandas()
+
+df['job_posted_date'] = pd.to_datetime(df['job_posted_date'])
+df_clean = df.drop_duplicates().copy()
+df_clean = df_clean.drop_duplicates(subset=['job_title','company_name','job_country'])
+df_clean['job_skills'] = df_clean['job_skills'].apply(lambda skills:ast.literal_eval(skills)if pd.notna(skills)else skills)
+```
+
+
+For some analysis taks, I filtered the dataset to keep only the Data Analyst roles and removed the rows that has empty salary. Then I expanded the skills column to make it clearer.
+
+```python
+df_clean = df_clean[df_clean['job_title_short']=='Data Analyst'].dropna(subset='salary_year_avg')
+
+df_skills = df_clean.explode('job_skills')
+```
+
+
 # Analysis
 
 ## 1. What are the most demanded skills for the Top 3 most popular data roles?
@@ -176,3 +226,24 @@ plt.show()
 - Analyst tools (orange) such as Tableau, Power BI, and Excel appear frequently in job postings, especially Excel, which leads in demand but offers lower median salaries. In contrast, Tableau has a good balance between demand and salary, indicating strong value in visualization tools.
 
 - Database technologies like SQL and SQL Server also rank high. While SQL is the most in-demand skill overall, it has a slightly lower salary than SQL Server, which offers a higher median salary at lower demand. This pattern reflects the strong demand for data management capabilities across analytics roles.
+
+
+# Insights
+
+This project provided several insights into the data job market for analysts:
+
+- Core skills like SQL, Python, and Excel remain highly in demand, especially for Data Analysts, Data Scientists, and Data Engineers. However, specialized tools such as Hugging Face, Bitbucket, and mxnet command higher salaries despite being less frequently requested.
+
+- Visualization shows that Python consistently offers one of the highest median salaries, while SQL remains the most demanded skill overall. Tableau and Power BI strike a strong balance between demand and compensation, making them valuable tools for aspiring analysts.
+
+- Senior roles, especially in Data Science and Engineering, show significantly higher and more variable salary ranges, indicating greater value and reward for expertise and experience.
+
+- Ultimately, the most optimal skillset for a data analyst includes a mix of high-demand foundational tools and high-paying niche skills. Staying current with market trends and diversifying technical competencies is key to increasing employability and maximizing salary potential.
+
+# What I Learned From This Project
+- The importance of aligning one's skills with market demand. Understanding the relationship between skill demand, salary, and job availability allows for more strategic career planning in the tech industry.
+- How to perform data analysis using Python.
+- Data cleaning and filtering is so important before analyzing anything. It could remove all the unnecessary and wrong data to make the analysis more reliable.
+- Visualization is the last but most important step to show your results. The axis, color, title, theme etc, they all reflect how you express your insights.
+- Designing effective visual representations of complex datasets was challenging but critical for conveying insights clearly and compellingly.
+- How to balance the overview of the landscape while diving into each analysis.
