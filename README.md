@@ -55,7 +55,7 @@ df_skills = df_clean.explode('job_skills')
 To find the most demanded skills for the top 3 most popular data roles. I first filtered out the duplicated rows and found out the 3 most popular data roles. Next I filtered out the top 5 skills for these 3 roles. This query highlights the most popular job titles and their top skills, showing which skill I should pay attention to depending on the role I'm interested in.
 
 View my notebook with detailed steps here:
-[2_Skills_Counting.ipynb](Project\2_Skills_Counting.ipynb)
+[2_Skills_Counting.ipynb](Project/2_Skills_Counting.ipynb)
 
 
 ### Visualize data
@@ -86,7 +86,7 @@ fig.tight_layout(h_pad=0.5)
 
 ### Results
 
-![Visualization of Top Skills](Project\Images\SkillDemand.png)
+![Visualization of Top Skills](Project/Images/SkillDemand.png)
 
 ### Insights
 - Python is a versatile skill, highly demanded across all three roles, but most prominently for Data Scientists (69%) and Data Engineers (63%).
@@ -120,7 +120,7 @@ plt.show()
 
 ### Results
 
-![Trending top Skills for Data Analysts in the US](Project\Images\Skill_Trend_DA.png)
+![Trending top Skills for Data Analysts in the US](Project/Images/Skill_Trend_DA.png)
 
 ### Insights:
 
@@ -145,7 +145,7 @@ plt.gca().xaxis.set_major_formatter(ticks_x)
 plt.show()
 ```
 
-![Salary Distribution of Data Jobs in the US](Project\Images\salary_boxplot.png)
+![Salary Distribution of Data Jobs in the US](Project/Images/salary_boxplot.png)
 
 ### Insights
 - Salary ranges vary widely across job titles, with Senior Data Scientist roles offering the highest earning potential—reaching up to $600K—highlighting the industry’s strong demand for advanced expertise and experience.
@@ -179,7 +179,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-![The Highest Paid & Most Demanded Skills for Data Analysts](Project\Images\HighestPaid_MostDemandedSkills.png)
+![The Highest Paid & Most Demanded Skills for Data Analysts](Project/Images/HighestPaid_MostDemandedSkills.png)
 
 ### Insights
 - The top graph shows specialized technical skills like mxnet, bitbucket, hugging face and dplyr are linked to higher salary levels, with some roles paying up to $200K, suggesting that mastering advanced tools can significantly boost earning potential.
@@ -218,7 +218,7 @@ plt.show()
 
 #### Results
 
-![Most optimal skills for Data Analysts](Project\Images\Optimal_Skill.png)
+![Most optimal skills for Data Analysts](Project/Images/Optimal_Skill.png)
 
 #### Insights
 - The scatter plot reveals that programming skills (blue),particularly Python and R, tend to be associated with higher salaries, with Python offering the highest median salary despite a moderate demand.
