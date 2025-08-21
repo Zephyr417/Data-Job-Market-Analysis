@@ -154,7 +154,7 @@ plt.show()
 
 - Median salaries rise with both seniority and specialization. Senior-level roles not only earn more on average but also show greater variability in pay, reflecting the broader range of responsibilities and influence within these positions.
 
-## Highest Paid & Most Demanded Skills for Data Analysts
+## 4. Highest Paid & Most Demanded Skills for Data Analysts
 ### Visualize Data
 ```python
 fig, ax = plt.subplots(2, 1)
@@ -188,7 +188,7 @@ plt.show()
 
 - A clear contrast exists between the highest-paying and most demanded skills. To improve career competency, data analysts should aim to build a well-rounded skill set that combines high-value specialized expertise with widely required foundational tools.
 
-## 4. What is the most optimal skills to learn for Data Analysts?
+## 5. What is the most optimal skills to learn for Data Analysts?
 
 #### Visualize Data
 ```python
